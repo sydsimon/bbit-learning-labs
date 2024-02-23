@@ -9,8 +9,6 @@ class mqProducer(mqProducerInterface):
         self.routing_key = routing_key
         self.exchange_name = exchange_name
         self.setupRMQConnection()
-        self.exchange
-        self.channel
 
     def setupRMQConnection(self) -> None:
         # Set-up Connection to RabbitMQ service
@@ -25,4 +23,4 @@ class mqProducer(mqProducerInterface):
 
     def publishOrder(self, message: str) -> None:
         # Basic Publish to Exchange
-        self.channel.basic_publish(self.exchange, self.routing_key, message)
+        self.channel.basic_publish(self.exchange_name, self.routing_key, message)
